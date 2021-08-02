@@ -1,0 +1,72 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-30 19:48:55
+ * @LastEditTime: 2021-07-31 14:46:05
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \学习日志\移动端事件.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动端特效</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        span {
+            position: absolute;
+            width: 70px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 16px;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: run .5s linear infinite;
+        }
+
+        @keyframes run {
+            0% {}
+
+            100% {
+                top: 70px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+</body>
+<script>
+    var flag = 0;
+    var sort = true;
+    var move = window.addEventListener('mousemove', (function (e) {
+        if (sort) {
+            var body = document.body;
+            var span = document.createElement('span');
+            span.innerHTML = '我是你爹';
+            span.setAttribute('index', flag)
+            span.style.left = e.pageX + 'px';
+            span.style.top = e.pageY + 'px';
+            body.appendChild(span);
+            flag++;
+            setTimeout(function () {
+                var span = document.body.querySelectorAll('span')
+                body.removeChild(span[0])
+            }, 500)
+            sort = false;
+        }
+    }));
+    setInterval(function () {
+        console.log(3);
+        sort = true
+    }, 100)
+</script>
+
+</html>

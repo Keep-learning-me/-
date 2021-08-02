@@ -1,0 +1,63 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-15 14:39:47
+ * @LastEditTime: 2021-07-15 15:04:31
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \学习日志\变量练习.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量练习</title>
+    <script>
+        // 1:
+        var my_name = prompt('你的名字是：');
+        alert('你的名字是' + my_name);
+        console.log('姓名：' + my_name);
+        //2:
+        var address = prompt('现居地：');
+        alert('现居地' + address);
+        console.log('现居地：' + address);
+        //3:
+        var age = prompt('年龄：');
+        alert('年龄' + age);
+        console.log('年龄：' + age + '岁');
+        //4：
+        var email = prompt('请输入你的邮箱：');
+        alert('你的邮箱' + email);
+        console.log('邮箱：' + email);
+        //5:
+        var salary = prompt('你的年薪是：');
+        alert('你的年薪是' + salary);
+        console.log('年薪：' + salary);
+
+        // 同时声明多个变量
+        var
+            my_name = prompt('你的名字是：'),
+            address = prompt('现居地：'),
+            age = prompt('年龄：'),
+            email = prompt('请输入你的邮箱：'),
+            salary = prompt('你的年薪是：');
+
+        //三种特殊情况
+        // 1.声明未赋值
+        var sex;
+        console.log(sex); //undefined 未定义的
+        //2.未声明未赋值
+        console.log(tel); //会报错
+        //3.未声明直接赋值
+        move = '100m';
+        console.log(move); //会输出110m,不会报错，可以使用
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

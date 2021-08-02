@@ -1,0 +1,137 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-22 21:10:39
+ * @LastEditTime: 2021-07-22 21:29:01
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \VS Code\HTML-CSS-JavaScript\JavaScript\学习日志\隔行变色效果.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隔行变色</title>
+    <style>
+        .bg {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <table align="center">
+        <tr>
+            <th>
+                猫眼电影前十排名（2021年）
+            </th>
+        </tr>
+    </table>
+    <p></p>
+    <table cellspacing="0" align="center" border="1" width="600">
+        <thead>
+            <tr>
+                <th>排名</th>
+                <th>名称</th>
+                <th>详情</th>
+            </tr>
+        </thead>
+        <tbody class="tbody">
+            <tr align="center">
+                <td>1</td>
+                <td>我不是药神</td>
+                <td><a href="https://p0.meituan.net/movie/414176cfa3fea8bed9b579e9f42766b9686649.jpg@160w_220h_1e_1c"
+                        target="_blank">海报链接</a>&nbsp;&nbsp;<a
+                        href="https://baike.baidu.com/item/%E6%88%91%E4%B8%8D%E6%98%AF%E8%8D%AF%E7%A5%9E/22485219?fr=aladdin"
+                        target="_blank">百度百科</a></td>
+            </tr>
+            <tr align="center">
+                <td>2</td>
+                <td>肖申克的救赎</td>
+                <td><a href="https://p0.meituan.net/movie/8112a8345d7f1d807d026282f2371008602126.jpg@160w_220h_1e_1c"
+                        target="_blank">海报链接</a>&nbsp;&nbsp;<a
+                        href="https://baike.baidu.com/item/%E8%82%96%E7%94%B3%E5%85%8B%E7%9A%84%E6%95%91%E8%B5%8E/30307?fr=aladdin"
+                        target="_blank">百度百科</a></td>
+            </tr>
+            <tr align="center">
+                <td>3</td>
+                <td>绿皮书</td>
+                <td><a href="https://p1.meituan.net/movie/c9b280de01549fcb71913edec05880585769972.jpg@160w_220h_1e_1c"
+                        target="_blank">海报链接</a>&nbsp;&nbsp;<a
+                        href="https://baike.baidu.com/item/%E7%BB%BF%E7%9A%AE%E4%B9%A6/22907809?fr=aladdin"
+                        target="_blank">百度百科</a></td>
+            </tr>
+            <tr align="center">
+                <td>4</td>
+                <td>海上钢琴师</td>
+                <td><a href="https://p0.meituan.net/movie/609e45bd40346eb8b927381be8fb27a61760914.jpg@160w_220h_1e_1c"
+                        target="_blank">海报链接</a>&nbsp;&nbsp;<a
+                        href="https://baike.baidu.com/item/%E6%B5%B7%E4%B8%8A%E9%92%A2%E7%90%B4%E5%B8%88/30460?fr=aladdin"
+                        target="_blank">百度百科</a></td>
+            </tr>
+            <tr align="center">
+                <td>5</td>
+                <td>小偷家族</td>
+                <td><a href="https://p1.meituan.net/movie/ac8f0004928fbce5a038a007b7c73cec746794.jpg@160w_220h_1e_1c"
+                        target="_blank">海报链接</a>&nbsp;&nbsp;<a
+                        href="https://baike.baidu.com/item/%E5%B0%8F%E5%81%B7%E5%AE%B6%E6%97%8F/22389259?fr=aladdin"
+                        target="_blank">百度百科</a></td>
+            </tr>
+            <tr align="center">
+                <td>6</td>
+                <td>哪吒之魔童降世</td>
+                <td><a href="https://p0.meituan.net/movie/8112a8345d7f1d807d026282f2371008602126.jpg@160w_220h_1e_1c"
+                        target="_blank">海报链接</a>&nbsp;&nbsp;<a
+                        href="https://baike.baidu.com/item/%E5%93%AA%E5%90%92%E4%B9%8B%E9%AD%94%E7%AB%A5%E9%99%8D%E4%B8%96/22187580?fr=aladdin"
+                        target="_blank">百度百科</a></td>
+            </tr>
+            <tr align="center">
+                <td>7</td>
+                <td>霸王别姬</td>
+                <td><a href="https://p0.meituan.net/movie/61fea77024f83b3700603f6af93bf690585789.jpg@160w_220h_1e_1c"
+                        target="_blank">海报链接</a>&nbsp;&nbsp;<a
+                        href="https://baike.baidu.com/item/%E9%9C%B8%E7%8E%8B%E5%88%AB%E5%A7%AC/8130086?fr=aladdin"
+                        target="_blank">百度百科</a></td>
+            </tr>
+            <tr align="center">
+                <td>8</td>
+                <td>美丽人生</td>
+                <td><a href="https://p1.meituan.net/movie/580d81a2c78bf204f45323ddb4244b6c6821175.jpg@160w_220h_1e_1c"
+                        target="_blank">海报链接</a>&nbsp;&nbsp;<a
+                        href="https://baike.baidu.com/item/%E7%BE%8E%E4%B8%BD%E4%BA%BA%E7%94%9F/10813?fr=aladdin"
+                        target="_blank">百度百科</a></td>
+            </tr>
+            <tr align="center">
+                <td>9</td>
+                <td>这个杀手不太冷</td>
+                <td><a href="https://p1.meituan.net/movie/6bea9af4524dfbd0b668eaa7e187c3df767253.jpg@160w_220h_1e_1c"
+                        target="_blank">海报链接</a>&nbsp;&nbsp;<a
+                        href="https://baike.baidu.com/item/%E8%BF%99%E4%B8%AA%E6%9D%80%E6%89%8B%E4%B8%8D%E5%A4%AA%E5%86%B7/535257?fr=aladdin"
+                        target="_blank">百度百科</a></td>
+            </tr>
+            <tr align="center">
+                <td>10</td>
+                <td>盗梦空间</td>
+                <td><a href="https://p0.meituan.net/moviemachine/c2496a7290a72eac6081321898c347693550574.jpg@160w_220h_1e_1c"
+                        target="_blank">海报链接</a>&nbsp;&nbsp;<a
+                        href="https://baike.baidu.com/item/%E7%9B%97%E6%A2%A6%E7%A9%BA%E9%97%B4/31288?fr=aladdin"
+                        target="_blank">百度百科</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var trs = document.querySelector('.tbody').querySelectorAll('tr');
+        for (var i = 0; i < trs.length; i++) {
+            trs[i].onmousemove = function () {
+                this.className = 'bg';
+            }
+            trs[i].onmouseout = function () {
+                this.className = '';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-21 23:35:59
+ * @LastEditTime: 2021-07-21 23:48:37
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \VS Code\HTML-CSS-JavaScript\JavaScript\学习日志\显示隐藏文本框内容.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示隐藏文本框内容</title>
+    <style>
+        input {
+            display: block;
+            margin: 50px auto;
+            width: 200px;
+            height: 20px;
+            font-size: 12px;
+            color: #999;
+            outline: none;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" value="手机" id="value">
+    <script>
+        var value = document.querySelector('#value');
+
+        value.onclick = function () {
+            if (this.value === '手机') {
+                this.value = '';
+            };
+            this.style.color = '#333';
+        };
+
+        value.onblur = function () {
+            if (this.value === '') {
+                this.value = '手机';
+            };
+            this.style.color = '#999';
+        };
+    </script>
+</body>
+
+</html>

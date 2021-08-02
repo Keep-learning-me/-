@@ -1,0 +1,108 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-30 16:19:23
+ * @LastEditTime: 2021-07-30 16:59:19
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\学习日志\筋斗云案例.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>筋斗云案例</title>
+    <script src="animate.js"></script>
+    <style>
+        * {
+
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        ul {
+            position: relative;
+            width: 500px;
+            height: 40px;
+            /* background-color: bisque; */
+        }
+
+        ul li {
+            float: left;
+            width: 50px;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        .yun {
+            position: absolute;
+            left: 0;
+            width: 50px;
+            height: 40px;
+            background-color: bisque;
+            z-index: -1;
+        }
+
+        .whi {
+            color: white;
+        }
+
+        .bl {
+            color: black;
+        }
+
+        .gr {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <div class="yun"></div>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+    <script>
+        var yun = document.querySelector('.yun');
+        var li = document.querySelector('ul').querySelectorAll('li')
+        var current = 0;
+        for (var i = 0; i < li.length; i++) {
+            li[i].addEventListener('mouseenter', function () {
+                animate(yun, this.offsetLeft)
+                this.className = 'whi';
+            });
+            var leave = li[i].addEventListener('mouseleave', function () {
+                this.className = '';
+                animate(yun, current)
+                console.log(4);
+            });
+            li[i].addEventListener('click', function () {
+                current = this.offsetLeft;
+                animate(yun, this.offsetLeft);
+                for (var i = 0; i < li.length; i++) {
+                    li[i].className = 'bl';
+                }
+                this.className = 'gr';
+                this.removeEventListener('mouseleave', leave)
+            })
+
+
+        }
+    </script>
+</body>
+
+</html>

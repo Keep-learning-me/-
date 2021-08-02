@@ -1,0 +1,33 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-18 11:02:52
+ * @LastEditTime: 2021-07-18 11:09:58
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \VS Code\HTML-CSS-JavaScript\JavaScript\学习日志\打印九九乘法表.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打印九九乘法表</title>
+    <script>
+        var str = '';
+        for (i = 1; i <= 9; i++) {
+            for (j = 1; j <= i; j++) {
+                str += j + 'x' + i + '=' + i * j + '\t';
+            }
+            str += '\n'
+        }
+        console.log(str)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

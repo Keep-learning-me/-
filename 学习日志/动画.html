@@ -1,0 +1,69 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-27 21:47:47
+ * @LastEditTime: 2021-07-27 22:43:26
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \学习日志\动画.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            position: relative;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .small_box {
+            position: absolute;
+            top: 150px;
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">father</div>
+    <span class="small_box">son</span>
+    <button>点击此处son运动</button>
+    <script>
+        var div = document.querySelector('div');
+        var span = document.querySelector('span');
+        var button = document.querySelector('button');
+        // 封装动画函数，接收参数：变量名和要往右移动的距离
+        function animate(obj, target) {
+            //所以防止一个变量多次多次调用时速度越来越快，保证动画的唯一性，所以每一次调用这个函数时要先清除一下正在调用中的函数，
+            clearInterval(obj.timer)
+            //为每一个变量设置一个timer函数，由于timer是变量名中的属性，所以每一个定时器的名字都是不一样的，防止定时器名字混淆
+            obj.timer = setInterval(function () {
+                if (obj.offsetLeft >= target - 1) {
+                    clearInterval(obj.timer)
+                };
+                obj.style.left = obj.offsetLeft + 1 + 'px';
+            }, 30)
+        };
+        animate(div, 400);
+        //由于每一次点击button按钮都会触发一个animate函数，所以速度会越来越快
+        button.addEventListener('click', function () {
+            animate(span, 200);
+        });
+    </script>
+</body>
+
+</html>

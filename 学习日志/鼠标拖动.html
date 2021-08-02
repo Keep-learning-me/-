@@ -1,0 +1,135 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-26 10:39:27
+ * @LastEditTime: 2021-07-26 11:51:51
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \学习日志\鼠标拖动.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标拖动</title>
+    <style>
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .body {
+            background-color: rgba(0, 0, 0, .1);
+        }
+
+        .click_login {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 50px;
+        }
+
+        #login {
+            position: relative;
+            display: none;
+            width: 512px;
+            height: 400px;
+            background-color: white;
+            margin: 0px auto;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-top: 50px;
+        }
+
+        .title:hover {
+            cursor: move;
+        }
+
+        input {
+            display: block;
+            width: 300px;
+            height: 25px;
+            margin: 5px auto;
+            outline: none;
+        }
+
+        .main {
+            text-align: center;
+        }
+
+        button {
+            cursor: pointer;
+            margin-top: 20px;
+            background-color: rgb(167, 12, 12);
+            width: 300px;
+            height: 25px;
+            outline: none;
+            border: 1px solid transparent;
+            color: white;
+        }
+
+        .close {
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: white;
+            text-align: center;
+            line-height: 50px;
+            color: black;
+            transform: translate(485px, -285px);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="click_login"><a href="javascript:;">点击登录</a></div>
+    <form action="" id="login">
+        <div class="title">京东登录</div>
+        <div class="main">
+            <div>请输入用户名<input type="text" name="username" id="username"></div>
+            <div>请输入密码<input type="number" name="password" id="password"></div>
+            <button>登录</button>
+            <div class="close">关闭</div>
+        </div>
+    </form>
+    <script>
+        var click_login = document.querySelector('.click_login');
+        var form = document.querySelector('#login');
+        var body = document.body;
+        var title = document.querySelector('.title');
+        var close = document.querySelector('.close');
+        click_login.addEventListener('click', function () {
+            body.className = 'body';
+            form.style.display = 'block';
+        })
+        close.addEventListener('click', function () {
+            body.className = '';
+            form.style.display = 'none';
+        })
+        title.addEventListener('mousedown', Click);
+
+        function Click(e) {
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+            document.addEventListener('mousemove', Move)
+
+            function Move(e) {
+                console.log(x);
+                form.style.left = e.pageX - x + 'px';
+                form.style.top = e.pageY - y + 'px';
+
+            }
+            document.addEventListener('mouseup', function () {
+                this.removeEventListener('mousemove', Move)
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-26 14:44:16
+ * @LastEditTime: 2021-07-26 16:41:30
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \学习日志\放大镜.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放大镜</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        div {
+            overflow: hidden;
+            position: relative;
+            width: 210px;
+            margin-left: 100px;
+        }
+
+        img {
+            vertical-align: bottom;
+            width: 210px;
+        }
+
+        .mark {
+            position: absolute;
+            display: none;
+            width: 100px;
+            height: 100px;
+            margin-left: 0;
+            background-color: rgba(228, 224, 21, 0.3);
+        }
+
+        .big_p {
+            display: none;
+            width: 315px;
+            height: 400px;
+            position: absolute;
+            left: 300px;
+            top: 0;
+            background-image: url('xuqiuyun.jpg');
+            background-size: 200%;
+            background-repeat: no-repeat;
+            background-position-y: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="show">
+        <img src="xuqiuyun.jpg" alt="">
+        <div class="mark"></div>
+    </div>
+    <div class="big_p">
+    </div>
+    <script>
+        var show = document.querySelector('.show');
+        var mark = document.querySelector('.mark');
+        var big_p = document.querySelector('.big_p');
+        show.addEventListener('mousemove', Biger);
+
+        function Biger(e) {
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+            console.log(y);
+            mark.style.cursor = 'move'
+            mark.style.display = 'block';
+            big_p.style.display = 'block';
+            mark.style.top = y - 50 + 'px';
+            mark.style.left = x - 50 + 'px';
+            big_p.style.backgroundPosition = (-x) * 3 / 2 + 'px' + ' ' + (-y) * 3 / 2 + 'px';
+            console.log(big_p);
+
+        }
+        show.addEventListener('mouseout', function () {
+            removeEventListener('mousemove', Biger)
+            mark.style.display = 'none';
+            big_p.style.display = 'none';
+        })
+    </script>
+</body>
+
+</html>

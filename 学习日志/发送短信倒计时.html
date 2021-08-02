@@ -1,0 +1,44 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-25 16:54:02
+ * @LastEditTime: 2021-07-25 19:44:53
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \学习日志\发送短信倒计时.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发送短信倒计时</title>
+</head>
+
+<body>
+    <div><input type="number"><button>发送</button></div>
+    <script>
+        var button = document.querySelector('button');
+        var timer = null;
+        button.addEventListener('click', function () {
+            var time = 5;
+            button.disabled = true;
+            timer = setInterval(function () {
+                if (time <= -1) {
+                    clearInterval(timer);
+                    button.innerHTML = '发送';
+                    button.disabled = false;
+
+                } else {
+                    button.innerHTML = '请在' + time + '秒后重新点击';
+                    time -= 1;
+                }
+
+            }, 1000)
+
+        })
+    </script>
+</body>
+
+</html>

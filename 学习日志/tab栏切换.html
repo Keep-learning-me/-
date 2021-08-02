@@ -1,0 +1,116 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-23 17:01:42
+ * @LastEditTime: 2021-07-23 19:15:33
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \VS Code\HTML-CSS-JavaScript\JavaScript\学习日志\tab栏切换.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab栏切换</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .tab {
+            width: 400px;
+            height: 30px;
+            margin: 50px auto;
+
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .tab li {
+            float: left;
+            width: 100px;
+            height: 100%;
+            background-color: #999;
+            border-left: 1px solid #ccc;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .tab-con {
+            position: relative;
+            width: 400px;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+        .tab-con li {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-color: antiquewhite;
+            margin: -50px 0 0 -200px;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .tab-con .hidden {
+            display: block;
+        }
+
+        .tab .white {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul class="tab">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <ul class="tab-con">
+            <li>一</li>
+            <li>二</li>
+            <li>三</li>
+            <li>四</li>
+        </ul>
+    </div>
+
+</body>
+<script>
+    var tabs = document.querySelector('.tab').querySelectorAll('li')
+    // console.log(tabs[2]);
+    var tabs_con = document.querySelector('.tab-con').querySelectorAll('li')
+    // console.log(tabs_con[3]);
+    tabs[0].className = 'white';
+    tabs_con[0].className = 'hidden';
+    for (var i = 0; i < tabs.length; i++) {
+        tabs[i].setAttribute('index', i)
+        tabs[i].onclick = function () {
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].className = '';
+            }
+            this.className = 'white';
+            for (var i = 0; i < tabs.length; i++) {
+                tabs_con[i].className = '';
+            };
+            tabs_con[this.getAttribute('index')].className = 'hidden';
+        }
+
+    }
+</script>
+
+</html>

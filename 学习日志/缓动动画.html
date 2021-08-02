@@ -1,0 +1,84 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-28 17:29:22
+ * @LastEditTime: 2021-07-28 19:56:22
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \学习日志\缓动动画.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缓动动画</title>
+    <script src="animate.js"></script>
+    <style>
+        .w {
+            position: absolute;
+            background-color: purple;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .box {
+            position: absolute;
+            top: 350px;
+            right: -150px;
+            width: 200px;
+            height: 50px;
+        }
+
+        .floor {
+            width: 50px;
+            height: 50px;
+            z-index: 1;
+        }
+
+        .buttom {
+            display: none;
+            width: 200px;
+            height: 50px;
+        }
+
+        .buttom a {
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="floor w">):</div>
+        <div class="buttom w">
+            <a href="javascript:;">联系咨询</a>
+        </div>
+    </div>
+    <script>
+        var floor = document.querySelector('.floor');
+        var box = document.querySelector('.box');
+        var buttom = document.querySelector('.buttom');
+        box.addEventListener('mouseenter', function () {
+            buttom.style.display = 'block';
+            animate(buttom, -150, function () {
+                floor.innerHTML = ':(';
+            })
+
+        });
+        box.addEventListener('mouseleave', function () {
+            buttom.style.display = 'none';
+            animate(buttom, 0, function () {
+                floor.innerHTML = '):';
+            })
+            buttom.style.left = '';
+        })
+    </script>
+</body>
+
+</html>

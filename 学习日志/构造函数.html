@@ -1,0 +1,35 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-19 15:44:24
+ * @LastEditTime: 2021-07-19 15:51:00
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \VS Code\HTML-CSS-JavaScript\JavaScript\学习日志\构造函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数</title>
+    <script>
+        function Honor(name, type, blood, attack) {
+            this.name = name;
+            this.type = type;
+            this.blood = blood;
+            this.attack = attack;
+        }
+        LianPo = new Honor('廉颇', '坦克', '5000', '攻击：近战');
+        HouYi = new Honor('后弈', '射手', '1000', '攻击：远程');
+
+        console.log(HouYi.name);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

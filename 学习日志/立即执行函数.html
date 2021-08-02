@@ -1,0 +1,38 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-26 22:25:47
+ * @LastEditTime: 2021-07-26 22:34:26
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \学习日志\立即执行函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立即执行函数</title>
+</head>
+
+<body>
+    <script>
+        //一般来说，函数需要先定义，然后再调用，例如：
+        function run() {
+            console.log('1');
+        };
+        run();
+        //立即执行函数则不需要调用,直接可以运行：
+        (function () {
+            console.log('2');
+        })();
+        //或者可以这样写：
+        (function () {
+            console.log(3);
+        }());
+        //在这之中的所有变量都是局部变量，不会有命名冲突的情况。
+    </script>
+</body>
+
+</html>

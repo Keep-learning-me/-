@@ -1,0 +1,43 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-19 16:08:30
+ * @LastEditTime: 2021-07-19 16:21:46
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \VS Code\HTML-CSS-JavaScript\JavaScript\学习日志\简易计算器.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易计算器</title>
+    <script>
+        var method = parseInt(prompt("请输入你的计算方式：" + '\n' + '1.加法' + '\n' + '2.减法' + '\n' + '3.乘法' + '\n' + '4.除法' +
+            '\n' +
+            '5.退出'))
+        if (method !== 5) {
+            var num1 = parseInt(prompt('请输入第一个数字')),
+                num2 = parseInt(prompt('请输入第二个数字'));
+
+            switch (method) {
+                case 1:
+                    alert(num1 + num2);
+                case 2:
+                    alert(num1 - num2);
+                case 3:
+                    alert(num1 * num2);
+                case 4:
+                    alert(num1 / num2);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

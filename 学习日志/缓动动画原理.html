@@ -1,0 +1,42 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-28 16:36:31
+ * @LastEditTime: 2021-07-28 17:29:43
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \学习日志\缓动动画.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缓动动画原理</title>
+    <script src="animate.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .father {
+            position: relative;
+            top: 20px;
+            width: 200px;
+            height: 200px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">father</div>
+    <script>
+        var father = document.querySelector('.father')
+        animate(father, 300)
+    </script>
+</body>
+
+</html>

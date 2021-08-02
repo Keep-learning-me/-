@@ -1,0 +1,66 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-18 11:30:09
+ * @LastEditTime: 2021-07-18 12:42:21
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \VS Code\HTML-CSS-JavaScript\JavaScript\学习日志\循环作业.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循环作业</title>
+    <!-- 1.接收用户输入的用户名和密码，如果错误就一直提示输入 -->
+    <!-- <script>
+        var username = prompt('输入用户名'),
+            password = parseInt(prompt('输入密码'));
+        while (username !== 'admin' || password !== 123456) {
+            var username = prompt('输入用户名'),
+                password = parseInt(prompt('输入密码'));
+            if (username === 'admin' && password === 123456) {
+                alert('登录成功！')
+                break
+            }
+        } 
+    </script>-->
+    <!-- 2.计算1-100的累加值，但跳过个位为3的数 -->
+    <!-- (1) -->
+    <script>
+        var number = 0,
+            sum = 0;
+        while (number <= 99) {
+            number++
+            if (number % 10 == 3) {
+                continue;
+            }
+            // console.log(number)
+            sum += number
+
+        };
+        console.log(sum)
+    </script>
+    <!-- (2) -->
+    <script>
+        var i = 0,
+            cal = 0;
+        for (i; i <= 100; ++i) {
+            if (i % 10 == 3) {
+                continue;
+            }
+            cal += i;
+            // console.log(i);
+
+        };
+        console.log(cal);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

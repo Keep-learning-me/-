@@ -1,0 +1,49 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-25 22:24:24
+ * @LastEditTime: 2021-07-25 22:41:04
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \学习日志\5秒自动跳转.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5秒自动跳转</title>
+    <style>
+        div {
+            transition: all 1s;
+            margin: 0 auto;
+            width: 400px;
+            line-height: 400px;
+            text-align: center;
+            line-height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        var timer = null;
+        var time = 5;
+
+        timer = setInterval(function () {
+            div.innerHTML = '网页将在' + time + '秒后自动跳转';
+            time--;
+            if (time === 0) {
+                clearInterval(timer);
+                div.innerHTML = '窝嫩蝶';
+                div.style.fontSize = '100px';
+                // location.assign('https://www.baidu.com');
+            }
+        }, 1000)
+    </script>
+</body>
+
+</html>

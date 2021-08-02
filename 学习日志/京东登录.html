@@ -1,0 +1,166 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-21 15:54:40
+ * @LastEditTime: 2021-07-21 17:36:34
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \VS Code\HTML-CSS-JavaScript\JavaScript\学习日志\京东登录.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东登录</title>
+    <style>
+        /* 字体声明 */
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?1pela0');
+            src: url('fonts/icomoon.eot?1pela0#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?1pela0') format('truetype'),
+                url('fonts/icomoon.woff?1pela0') format('woff'),
+                url('fonts/icomoon.svg?1pela0#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ccc;
+        }
+
+        header {
+            height: 60px;
+            text-align: center;
+            font-size: 18px;
+            /* background-color: antiquewhite; */
+        }
+
+        header::before {
+            display: block;
+            content: '';
+            position: relative;
+            top: 25px;
+            left: 20px;
+            width: 10px;
+            height: 10px;
+            border: 2px solid rgb(0, 0, 0);
+            border-right: 0;
+            border-top: 0;
+            transform: rotate(45deg);
+        }
+
+        .middle {
+            position: relative;
+            height: 400px;
+            width: 800px;
+            margin: 100px auto 0 auto;
+        }
+
+        .middle input {
+            display: block;
+            width: 800px;
+            height: 30px;
+            margin-top: 20px;
+            border: 0;
+            border-bottom: 1px solid #ccc;
+            outline: none;
+        }
+
+        .middle button {
+            margin-top: 40px;
+            width: 100%;
+            height: 40px;
+            background-color: rgb(255, 50, 0);
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            color: white;
+            cursor: pointer;
+        }
+
+        .eye {
+            font-family: 'icomoon';
+            color: rgb(255, 50, 0);
+            position: absolute;
+            right: 80px;
+            top: 55px;
+            cursor: pointer;
+        }
+
+        .forget {
+            position: absolute;
+            right: 0px;
+            top: 55px;
+            padding-left: 5px;
+            border-left: 2px solid #ccc;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            color: black;
+            background-color: white;
+        }
+
+        .another_way_to_login {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .another_way_to_login .left {
+
+            float: left;
+        }
+
+        .another_way_to_login .right {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <header>京东登录</header>
+    <div class="middle">
+        <form action="">
+            <table>
+                <input type="text" name="username" id="username">
+                <input type="password" name="password" id="password">
+                <div class="eye"></div>
+                <a href="#" class="forget">忘记密码</a>
+                <button>登录</button>
+                <div class="another_way_to_login">
+                    <a class="left" href="#">短信验证码登录</a>
+                    <a class="right" href="#">手机快速注册</a>
+                </div>
+            </table>
+        </form>
+    </div>
+</body>
+<script>
+    var eye = document.querySelector('.eye');
+    var input = document.querySelector('#password')
+    // console.log(input.type);
+    var flag = 0;
+    eye.onclick = function () {
+        if (flag === 0) {
+            input.type = 'text';
+            eye.innerHTML = '';
+            flag = 1;
+        } else {
+            input.type = 'password'
+            eye.innerHTML = '';
+            flag = 0;
+        }
+    }
+</script>
+
+</html>

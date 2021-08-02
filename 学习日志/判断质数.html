@@ -1,0 +1,36 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-19 09:37:20
+ * @LastEditTime: 2021-07-19 09:47:45
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \VS Code\HTML-CSS-JavaScript\JavaScript\学习日志\判断质数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判断质数</title>
+    <script>
+        var num = parseInt(prompt('请输入一个数字'));
+
+        function judgePrime(num) {
+            for (var i = 2; i < num; i++) {
+                if (num % i === 0) {
+                    return alert('你输入的数字不是质数');
+                };
+            };
+            return alert('你输入的数字是质数');
+        };
+        judgePrime(num);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

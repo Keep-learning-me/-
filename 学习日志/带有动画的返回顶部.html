@@ -1,0 +1,103 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-29 22:41:03
+ * @LastEditTime: 2021-07-29 22:45:07
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \学习日志\带有动画的返回顶部.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿淘宝侧边栏</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .w {
+            width: 1200px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .header {
+            height: 200px;
+            background-color: antiquewhite;
+        }
+
+        .nav {
+            height: 100px;
+            background-color: aqua;
+        }
+
+        .main {
+            height: 700px;
+            background-color: blueviolet;
+        }
+
+        .Bar {
+            position: absolute;
+            right: 20px;
+            top: 300px;
+            width: 40px;
+            height: 200px;
+            background-color: rgb(95, 95, 3);
+        }
+
+        .character {
+            cursor: pointer;
+            display: none;
+            text-align: center;
+            padding-top: 150px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header w">header</div>
+    <div class="nav w">nav</div>
+    <div class="main w">main</div>
+    <div class="Bar">
+        <div class="character">返回头部</div>
+    </div>
+    <script>
+        var header = document.querySelector('.header');
+        var nav = document.querySelector('.nav');
+        var main = document.querySelector('.main');
+        // 获取nav导航栏到顶部的距离
+        var nav_top = nav.offsetTop;
+        var Bar = document.querySelector('.Bar');
+        // 获取Bar到顶部的距离
+        var Bar_top = Bar.offsetTop;
+        var character = document.querySelector('.character')
+        // 添加滚动事件
+        document.addEventListener('scroll', function () {
+            // 如果文档在窗口Y轴方向超出的距离大于nav导航栏到顶部的距离，就使Bar区域固定在屏幕上。
+            if (window.pageYOffset >= nav_top) {
+                Bar.style.position = 'fixed';
+                Bar.style.top = Bar_top - nav_top + 'px';
+
+            } else {
+                //反之返回原来状态。
+                Bar.style.position = 'absolute';
+                Bar.style.top = '300px';
+            }
+            // 如果文档在窗口Y轴方向的距离大于main区域距离顶部的距离，就使文字区域出现
+            if (window.pageYOffset >= main.offsetTop) {
+                character.style.display = 'block';
+            } else {
+                //否则就使文字区域消失
+                character.style.display = 'none';
+            }
+        })
+    </script>
+</body>
+
+</html>

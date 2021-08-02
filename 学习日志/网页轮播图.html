@@ -1,0 +1,222 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-29 15:32:21
+ * @LastEditTime: 2021-07-29 22:29:26
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \学习日志\网页轮播图.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页轮播图</title>
+    <script src="animate.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .focus {
+            position: relative;
+            overflow: hidden;
+            width: 700px;
+            margin: 75px 0 0 300px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .focus ul {
+            position: relative;
+            width: 500%;
+        }
+
+        .focus ul li {
+            float: left;
+        }
+
+        .focus ul li img {
+            height: 400px;
+            width: 700px;
+            vertical-align: bottom;
+
+        }
+
+        .focus ol {
+            display: block;
+            position: absolute;
+            left: 20px;
+            top: 380px;
+        }
+
+        .focus ol li {
+            cursor: pointer;
+            float: left;
+            margin-left: 5px;
+            width: 15px;
+            height: 15px;
+            border: 1px white solid;
+            /* background-color: white; */
+            border-radius: 50%;
+        }
+
+        .current {
+            background-color: white;
+        }
+
+        .button_L,
+        .button_R {
+            display: none;
+            position: absolute;
+            top: 180px;
+            cursor: pointer;
+            clear: both;
+            z-index: 1;
+            width: 50px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, .8);
+            color: white;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        .button_R {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="focus">
+        <ul>
+            <li>
+                <img src="wallhaven-1.png" alt="">
+            </li>
+            <li>
+                <img src="wallhaven-2.png" alt="">
+            </li>
+            <li>
+                <img src="wallhaven-3.png" alt="">
+            </li>
+            <li>
+                <img src="wallhaven-4.jpg" alt="">
+            </li>
+            <!-- <li>
+                <img src="wallhaven-1.png" alt="">
+            </li> -->
+        </ul>
+        <ol></ol>
+        <div class="button_L">&lt;</div>
+        <div class="button_R">&gt;</div>
+    </div>
+    <script>
+        var focus = document.querySelector('.focus')
+        var focusWidth = focus.offsetWidth;
+        var ul = document.querySelector('.focus').querySelector('ul')
+        var img = document.querySelector('.focus').querySelector('ul').querySelectorAll('li')
+        var ol = document.querySelector('.focus').querySelector('ol')
+        var circle = ol.children;
+
+        //1.创建和图片数量等同的小圆圈
+        for (var i = 0; i < img.length; i++) {
+
+            var li = document.createElement('li')
+            li.setAttribute('index', i)
+            ol.appendChild(li);
+            //第一个小圆圈的背景色为白色
+            circle[0].className = 'current';
+
+            //2,创建点击事件
+            li.addEventListener('click', function () {
+                count = Number(this.getAttribute('index'));
+                animate(ul, -700 * count);
+                num = count;
+                flag = count;
+                for (var i = 0; i < circle.length; i++) {
+                    circle[i].className = '';
+                }
+                this.className = 'current';
+            })
+        };
+        var first = img[0].cloneNode(true);
+        ul.appendChild(first)
+        var button_L = document.querySelector('.button_L');
+        var button_R = document.querySelector('.button_R');
+        focus.addEventListener('mouseenter', function () {
+            button_R.style.display = 'block';
+            button_L.style.display = 'block';
+            clearInterval(timer)
+            timer = null
+
+        })
+        focus.addEventListener('mouseleave', function () {
+            button_R.style.display = 'none';
+            button_L.style.display = 'none';
+            timer = setInterval(function () {
+                button_R.click();
+            }, 2000)
+
+        })
+        var num = 0;
+        var flag = 0;
+        //节流阀
+        var control = true;
+        var click_R = button_R.addEventListener('click', function () {
+            if (control) {
+                control = false; //关闭节流阀
+                if (num == ul.children.length - 1) {
+                    ul.style.left = 0;
+                    num = 0;
+                }
+                num++;
+                // 动画结束之后再开启
+                animate(ul, -num * focusWidth, function () {
+                    control = true
+                });
+
+                flag++;
+                if (flag === circle.length) {
+                    flag = 0
+                }
+                for (var i = 0; i < circle.length; i++) {
+                    circle[i].className = '';
+                };
+                circle[flag].className = 'current';
+
+            }
+        });
+        var click_L = button_L.addEventListener('click', function () {
+            if (control) {
+                control = false;
+                if (num == 0) {
+                    num = ul.children.length - 1
+                    ul.style.left = -num * focusWidth + 'px';
+                }
+                num--;
+                animate(ul, -num * focusWidth, function () {
+                    control = true;
+                });
+                flag--;
+                if (flag < 0) {
+                    flag = circle.length - 1
+                }
+                for (var i = 0; i < circle.length; i++) {
+                    circle[i].className = '';
+                };
+                circle[flag].className = 'current';
+            }
+        });
+        //定时器功能
+        var timer = setInterval(function () {
+            button_R.click();
+        }, 2000)
+    </script>
+</body>
+
+</html>

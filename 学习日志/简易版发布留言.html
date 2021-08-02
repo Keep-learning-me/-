@@ -1,0 +1,74 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-24 11:05:22
+ * @LastEditTime: 2021-07-24 11:41:38
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \VS Code\HTML-CSS-JavaScript\JavaScript\学习日志\简易版发布留言.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易版发布留言</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        button {
+            background-color: azure;
+            border: 1px solid #ccc;
+
+        }
+
+        button:hover {
+            background-color: rgb(3, 39, 39);
+            color: white;
+        }
+
+        ul {
+            list-style: none;
+
+        }
+
+        ul li {
+            margin-top: 20px;
+            background-color: #ccc;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box">
+        <textarea name="" id="" cols="30" rows="10">请输入留言内容</textarea>
+        <button>提交</button>
+        <ul>
+        </ul>
+    </div>
+    <script>
+        var textarea = document.querySelector('textarea');
+        var button = document.querySelector('button');
+        var ul = document.querySelector('ul');
+        textarea.onclick = function () {
+            if (this.value === '') {
+                this.value = '请输入留言内容';
+            } else {
+                this.value = '';
+            };
+        };
+        button.onclick = function () {
+            var string = textarea.value;
+            var li = document.createElement('li');
+            li.innerHTML = string;
+            ul.appendChild(li);
+        }
+    </script>
+</body>
+
+</html>
