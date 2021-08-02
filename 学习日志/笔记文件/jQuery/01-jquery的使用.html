@@ -1,0 +1,49 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-08-01 15:24:56
+ * @LastEditTime: 2021-08-01 15:42:15
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \jQuery\01-jquery的使用.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-jquery的使用</title>
+    <script src="jquery.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //当script在页面元素上方时
+        //1.
+        $(document).ready(function () {
+            $('div').hide()
+        })
+        //2.
+        $(function () {
+            $('div').hide()
+        })
+        //这两种方法皆可，相当于原生js中的DOMContentLoaded，等待页面DOM结构渲染完成之后即可执行里面代码
+        // addEventListener('DOMContentLoaded', function () {})
+    </script>
+    <div></div>
+    <script>
+        //当script在页面元素下方时
+        //隐藏div元素
+        // $('div').hide()
+    </script>
+</body>
+
+</html>

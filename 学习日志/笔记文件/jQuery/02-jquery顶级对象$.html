@@ -1,0 +1,33 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-08-01 15:42:41
+ * @LastEditTime: 2021-08-01 15:44:58
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \jQuery\02-jquery顶级对象$.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-jquery顶级对象$</title>
+    <script src="jquery.js"></script>
+</head>
+
+<body>
+    <script>
+        //$是jQuery的别称，相当于jQuery，同时也是jQuery的顶级对象
+        $(function () {
+            console.log(12);
+        })
+        //等价于
+        jQuery(function () {
+            console.log(12);
+        })
+    </script>
+</body>
+
+</html>

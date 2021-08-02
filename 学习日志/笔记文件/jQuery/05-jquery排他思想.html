@@ -1,0 +1,47 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-08-01 23:10:07
+ * @LastEditTime: 2021-08-01 23:18:20
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \jQuery\jquery排他思想.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-jquery排他思想</title>
+    <script src="jquery.js"></script>
+    <style>
+        button {
+            border: 1px solid orange;
+        }
+    </style>
+</head>
+
+<body>
+    <button>点我</button>
+    <button>点我</button>
+    <button>点我</button>
+    <button>点我</button>
+    <button>点我</button>
+    <button>点我</button>
+    <button>点我</button>
+    <button>点我</button>
+    <button>点我</button>
+    <script>
+        $(function () {
+            $('button').click(
+                function () {
+                    $(this).css('background-color', 'white')
+                    $(this).siblings('button').css('background-color', '')
+                }
+            )
+        })
+    </script>
+</body>
+
+</html>

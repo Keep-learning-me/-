@@ -1,0 +1,117 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-08-01 22:29:49
+ * @LastEditTime: 2021-08-01 23:01:35
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \jQuery\下拉菜单.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单</title>
+    <script src="jquery.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box .small_box a {
+            line-height: 30px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .box {
+            width: 200px;
+            height: 30px;
+            margin: 50px auto;
+
+        }
+
+        .box .small_box {
+            text-align: center;
+            float: left;
+            width: 25%;
+        }
+
+        .box .small_box>a {
+            position: relative;
+            left: -1px;
+            display: block;
+            background-color: #ccc;
+        }
+
+        .box .small_box .drop_down {
+            display: none;
+        }
+
+        .box .small_box .drop_down li {
+            margin-top: -1px;
+            margin-left: -1px;
+            border: 1px solid orange;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="box">
+        <li class="small_box">
+            <a href="javascript:;">微博</a>
+            <ul class="drop_down">
+                <li><a>你好</a></li>
+                <li><a>@我</a></li>
+                <li><a>联系</a></li>
+            </ul>
+        </li>
+        <li class="small_box">
+            <a href="javascript:;">微博</a>
+            <ul class="drop_down">
+                <li><a>你好</a></li>
+                <li><a>@我</a></li>
+                <li><a>联系</a></li>
+            </ul>
+        </li>
+        <li class="small_box">
+            <a href="javascript:;">微博</a>
+            <ul class="drop_down">
+                <li><a>你好</a></li>
+                <li><a>@我</a></li>
+                <li><a>联系</a></li>
+            </ul>
+        </li>
+        <li class="small_box">
+            <a href="javascript:;">微博</a>
+            <ul class="drop_down">
+                <li><a>你好</a></li>
+                <li><a>@我</a></li>
+                <li><a>联系</a></li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        $(function () {
+            $('.small_box').mouseover(function () {
+                // $(this)是指jQuery的当前元素
+                // show() 显示元素
+                $(this).children('ul').show()
+            })
+            $('.small_box').mouseleave(function () {
+                // hide() 隐藏元素
+                $(this).children('ul').hide()
+            })
+        })
+    </script>
+</body>
+
+</html>

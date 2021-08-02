@@ -1,0 +1,43 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-08-01 15:50:24
+ * @LastEditTime: 2021-08-01 15:59:25
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \jQuery\03-jquery对象和DOM对象.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-jquery对象和DOM对象</title>
+    <script src="jquery.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        //1.DOM对象，即是利用原生js获取过来的对象
+        var myDiv = document.querySelector('div'); //myDiv是DOM对象
+        console.dir(myDiv);
+        //2.jQuery对象就是利用jquery获得的对象，实际上就是将DOM进行包装后得到的一个伪数组
+        $('div') //$('div')就是一个jquery对象
+        console.dir($('div'));
+        //3.jquery对象只能使用jquery方法，DOM对象只能使用DOM方法，二者不可混用
+        // 例如，运行如下代码均会报错：
+        myDiv.hide()
+        $('div').style.display = 'none'
+    </script>
+</body>
+
+</html>
